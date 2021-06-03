@@ -1,8 +1,17 @@
-import './App.css';
+import "./App.css";
+import AppFrame from "./components/AppFrame";
+import Layout from "./components/Layout";
+
+// * Context
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <div>Hello from React Firebase OAuth Template</div> 
+    <AuthProvider>
+      <Layout>
+        <AppFrame />
+      </Layout>
+    </AuthProvider>
   );
 }
 
