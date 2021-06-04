@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import InfoPopper from "./InfoPopper";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -7,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
     backgroundColor: "#1D1F31",
     color: "#FFF",
+    display:'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   fullSvg: {
     width: "100%",
@@ -97,33 +101,8 @@ const Layout = ({ children }) => {
           </linearGradient>
         </defs>
       </svg>
-      <svg
-        className={classes.fullSvgPot}
-        width="619"
-        height="520"
-        viewBox="0 0 619 520"
-        fill="none"
-      >
-        <rect x="-164" width="783" height="520" fill="url(#pattern0)" />
-        <defs>
-          <pattern
-            id="pattern0"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use
-              transform="translate(0.301596) scale(0.00166028 0.0025)"
-            />
-          </pattern>
-          <image
-            id="image0"
-            width="239"
-            height="400"
-          />
-        </defs>
-      </svg>
-
+   
+   <InfoPopper/>
       {children}
     </div>
   );
