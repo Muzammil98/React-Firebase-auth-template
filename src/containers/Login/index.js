@@ -9,9 +9,19 @@ const Login = () => {
 
   const handleSignIn = (provider) => {
     if (provider === "google") {
-      googleSignIn();
+      googleSignIn()
+      .then(() => {})
+      .catch((error) => {
+        alert(error.message);
+        console.error(error);
+      });
     } else {
-      githubSignIn();
+      githubSignIn()
+        .then(() => {})
+        .catch((error) => {
+          alert(error.message);
+          console.error(error);
+        });
     }
   };
 
@@ -20,15 +30,21 @@ const Login = () => {
       <h3 style={{ marginBottom: "10px", fontWeight: "300" }}>
         To login please continue with
       </h3>
-      <div style={{display: "flex",flexDirection: "column",justifyContent: "center",}}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Button
           primary
           variant="contained"
           endIcon={<FcGoogle />}
           style={{
             color: "#FFF",
-            background:"#474265",
-            marginBottom:"5px"
+            background: "#474265",
+            marginBottom: "5px",
           }}
           onClick={() => handleSignIn("google")}
         >
@@ -40,10 +56,10 @@ const Login = () => {
           endIcon={<FaGithub />}
           style={{
             color: "#FFF",
-            background:"#474265",
-            marginBottom:"5px"
+            background: "#474265",
+            marginBottom: "5px",
           }}
-          onClick={() => handleSignIn("google")}
+          onClick={() => handleSignIn("github")}
         >
           github
         </Button>

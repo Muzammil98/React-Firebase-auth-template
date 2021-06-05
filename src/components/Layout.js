@@ -1,16 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import InfoPopper from "./InfoPopper";
-
+import { AiTwotoneHeart } from "react-icons/ai";
 const useStyles = makeStyles((theme) => ({
   container: {
     width: "100vw",
     height: "100vh",
     backgroundColor: "#1D1F31",
     color: "#FFF",
-    display:'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   fullSvg: {
     width: "100%",
@@ -28,6 +28,26 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     top: 0,
     zIndex: 0,
+  },
+  footer: {
+    fontSize: "10px",
+    fontWeight: "200",
+    zIndex: 99,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "#cabfbf",
+    position: "absolute",
+    [theme.breakpoints.up('sm')]:{
+      right:"20px",
+      
+    },
+    bottom: "20px",
+    "& .heart": {
+      color: "#d03232",
+      fontSize: "12px",
+      marginLeft:"5px"
+    },
   },
 }));
 
@@ -101,9 +121,13 @@ const Layout = ({ children }) => {
           </linearGradient>
         </defs>
       </svg>
-   
-   <InfoPopper/>
+
+      <InfoPopper />
       {children}
+      <div className={classes.footer}>
+        <p>Hand-crafted and made with</p>
+        <AiTwotoneHeart className="heart" />
+      </div>
     </div>
   );
 };

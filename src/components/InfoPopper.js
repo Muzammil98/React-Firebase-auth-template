@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 40px",
     [theme.breakpoints.down("xs")]: {
       width: "90%",
+      padding: "20px 25px",
+      marginRight: "20px",
     },
     width: "60%",
     marginLeft: "auto",
@@ -27,11 +29,14 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "20px",
     },
     "& .heading": {
-      fontSize: "17px",
+      [theme.breakpoints.up("sm")]: {
+        fontSize: "18px",
+      },
+      fontSize: "15px",
       marginBottom: "5px",
     },
     "& .para": {
-      fontSize: "14px",
+      fontSize: "12px",
     },
     "& .button-wrapper": {
       display: "flex",
@@ -49,13 +54,20 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
     textTransform: "capitalize",
     borderRadius: "7px",
-    padding: "5px 20px",
-    fontSize: "12px",
+    [theme.breakpoints.up("sm")]: {
+      padding: "5px 20px",
+      fontSize: "12px",
+      "& .MuiButton-endIcon": {
+        width: "18px",
+      },
+    },
+    padding: "3px 15px",
+    fontSize: "10px",
     "&:hover": {
       boxShadow: "none",
     },
     "& .MuiButton-endIcon": {
-      width: "18px",
+      width: "15px",
     },
   },
   infoButton: {
@@ -100,8 +112,9 @@ const InfoPopper = () => {
               <div className="about-container">
                 <h5 className="heading">About</h5>
                 <p className="para">
-                  Hi, i’m Muzammil Sarwar a Full-Stack developer. This app was
-                  hand-crafted design and developed
+                  Hi, i’m Muzammil a Full-Stack developer and UI/UX designer.
+                  This app was hand-craftedly designed and developed from
+                  scratch
                 </p>
               </div>
               <div className="connect-container">

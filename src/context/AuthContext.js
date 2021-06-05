@@ -22,46 +22,40 @@ export const AuthProvider = ({ children }) => {
       });
   };
   const googleSignIn = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope("https://www.googleapis.com/auth/userinfo.email");
-    if (!user || user === null) {
-      auth.signInWithRedirect(provider);
-      // auth
-      //   .getRedirectResult()
-      //   .then((result) => {
-      //     // if (result.credential) {
-      //     //   const credential = result.credential;
-      //     //   const token = credential.accessToken;
-      //     // }
-      //     const user = result.user;
-      //     // setUser(user);
-      //   })
-      //   .catch((error) => {
-      //     alert(
-      //       "An account with same email already exists on different provider. Try signing in with other provider"
-      //     );
-      //   });
-    }
+    return new Promise((resolve, reject) => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope("https://www.googleapis.com/auth/userinfo.email");
+      if (!user || user === null) {
+        auth.signInWithRedirect(provider);
+        auth
+          .getRedirectResult()
+          .then((result) => {
+            const user = result.user;
+            resolve(user);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }
+    });
   };
   const githubSignIn = () => {
-    const provider = new firebase.auth.GithubAuthProvider();
-    provider.addScope("read:user");
-    if (!user || user === null) {
-      auth.signInWithRedirect(provider);
-      // auth
-      //   .getRedirectResult()
-      //   .then((result) => {
-      //     const user = result.user;
-      //     console.log("USER ", user);
-
-      //     setUser(user);
-      //   })
-      //   .catch((error) => {
-      //     alert(
-      //       "An account with same email already exists on different provider. Try signing in with other provider"
-      //     );
-      //   });
-    }
+    return new Promise((resolve, reject) => {
+      const provider = new firebase.auth.GithubAuthProvider();
+      provider.addScope("read:user");
+      if (!user || user === null) {
+        auth.signInWithRedirect(provider);
+        auth
+          .getRedirectResult()
+          .then((result) => {
+            const user = result.user;
+            resolve(user);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }
+    });
   };
 
   useEffect(() => {
