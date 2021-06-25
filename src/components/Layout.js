@@ -4,8 +4,8 @@ import InfoPopper from "./InfoPopper";
 import { AiTwotoneHeart } from "react-icons/ai";
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: "100vw",
-    height: "100vh",
+    minWidth: "100vw",
+    minHeight: "100vh",
     backgroundColor: "#1D1F31",
     color: "#FFF",
     display: "flex",
@@ -38,15 +38,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     color: "#cabfbf",
     position: "absolute",
-    [theme.breakpoints.up('sm')]:{
-      right:"20px",
-      
+    [theme.breakpoints.up("sm")]: {
+      right: "20px",
     },
     bottom: "20px",
     "& .heart": {
       color: "#d03232",
       fontSize: "12px",
-      marginLeft:"5px"
+      marginLeft: "5px",
     },
   },
 }));

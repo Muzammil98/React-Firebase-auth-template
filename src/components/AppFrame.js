@@ -21,16 +21,16 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "60vw",
-    height: "80vh",
-    [theme.breakpoints.down('xs')]:{
-      width: "100vw",
-      height: "100vh",
-      background:'transparent',
-      boxShadow:"none"
+    minWidth: "60vw",
+    minHeight: "80vh",
+    [theme.breakpoints.down("xs")]: {
+      minWidth: "100vw",
+      minHeight: "100vh",
+      background: "transparent",
+      boxShadow: "none",
     },
-    zIndex:0,
-    opacity:'0.999'
+    zIndex: 0,
+    opacity: "0.999",
   },
 }));
 
